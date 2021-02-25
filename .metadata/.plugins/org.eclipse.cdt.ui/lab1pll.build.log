@@ -1,0 +1,10 @@
+22:41:04 **** Incremental Build of configuration Debug for project lab1pll ****
+make -j16 all 
+arm-none-eabi-size   lab1pll.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8208	     20	   1636	   9864	   2688	lab1pll.elf
+Finished building: default.size.stdout
+ 
+
+22:41:04 Build Finished. 0 errors, 0 warnings. (took 195ms)
+

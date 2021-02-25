@@ -1,0 +1,82 @@
+14:08:33 **** Incremental Build of configuration Debug for project lab3_3 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F411xE -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'uart1_thread':
+../Core/Src/main.c:263:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   HAL_UART_Transmit(&huart2, "A", 1, 1000);
+                              ^~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:404:0,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:696:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'uart2_thread':
+../Core/Src/main.c:269:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   HAL_UART_Transmit(&huart2, "B", 1, 1000);
+                              ^~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:404:0,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:696:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'uartmsg1_thread':
+../Core/Src/main.c:280:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   sprintf(buffer, "TID: %d %d\r\n", threadID, idx);
+   ^~~~~~~
+../Core/Src/main.c:280:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:280:3: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:282:39: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 1000);
+                                       ^~~~~~
+../Core/Src/main.c:282:39: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:282:39: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:282:30: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 1000);
+                              ^
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:404:0,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:696:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char (*)[32]'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'uartmsg2_thread':
+../Core/Src/main.c:294:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+   sprintf(buffer, "TID: %d %d\r\n", threadID, idx);
+   ^~~~~~~
+../Core/Src/main.c:294:3: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:296:39: warning: incompatible implicit declaration of built-in function 'strlen'
+   HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 1000);
+                                       ^~~~~~
+../Core/Src/main.c:296:39: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:296:30: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 1000);
+                              ^
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:404:0,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:696:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char (*)[32]'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab3_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32CubeIDE\workspace_1.5.1\lab3_3\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_3.elf
+ 
+arm-none-eabi-objdump -h -S  lab3_3.elf  > "lab3_3.list"
+arm-none-eabi-objcopy  -O binary  lab3_3.elf  "lab3_3.bin"
+arm-none-eabi-size   lab3_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23108	    124	  18012	  41244	   a11c	lab3_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab3_3.bin
+ 
+Finished building: lab3_3.list
+ 
+
+14:08:34 Build Finished. 0 errors, 10 warnings. (took 751ms)
+
